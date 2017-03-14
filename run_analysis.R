@@ -33,7 +33,7 @@ train_set <- cbind(subject_train, y_train, x_train)
 total_set <- rbind(test_set, train_set)
 
 #Remove all measurement columns that aren't mean or std
-measurements <- grep("mean|std", names(total_set), value = TRUE)
+measurements <- grep("mean\\(\\)|std\\(\\)", names(total_set), value = TRUE)
 columns <- c('Subject', 'Activity', measurements)
 total_set <- total_set[,columns]
 
@@ -45,3 +45,4 @@ answer_set <- arrange(answer_set, Activity, Subject)
 
 #Write answer set to file
 #write.csv(answer_set, "answer_set.csv")
+
