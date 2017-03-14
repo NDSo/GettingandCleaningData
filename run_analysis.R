@@ -42,7 +42,7 @@ library(dplyr)
 byactivitysubject <- group_by(total_set, Activity, Subject)
 answer_set <- summarize_at( byactivitysubject, .funs = c("mean"), .cols = vars())
 answer_set <- arrange(answer_set, Activity, Subject)
-
+answer_set
 #Write answer set to file
 #write.csv(answer_set, "answer_set.csv")
 
